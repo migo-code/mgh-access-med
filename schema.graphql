@@ -1,0 +1,43 @@
+type Query {
+  books: [Book]
+}
+
+type Answer {
+  description: String!
+  correctChoice: Boolean!
+}
+
+type Topic {
+  description: String!
+  size: Float!
+}
+
+type Question {
+  description: String!
+  topicDescription: String
+  chapter: String
+  answers: [Answer]!
+}
+
+type Quiz {
+  questions: [Question]
+  size: Float!
+  topic: [Topic]
+}
+
+type Book {
+  title: String
+  author: String
+  quiz: Quiz
+}
+
+type AddBookMutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  book: Book
+}
+
+type Mutation {
+  addBook(title: String, author: String): AddBookMutationResponse
+}
