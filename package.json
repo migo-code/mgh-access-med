@@ -4,13 +4,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "rimraf ./dist && npm run compile",
+    "build": "rimraf ./dist && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "npm run generate && tsc",
-    "postinstall": "npm run compile",
     "start": "npm run build && node ./dist/index.js",
-    "generate": "graphql-codegen --config codegen.yml",
-    "watch": "concurrently  --names \"CodeGen,TS,Nodemon\" -c \"bgYellow,bgBlue,bgMagenta\" \"graphql-codegen --watch 'src/**/*.ts'\"  \"tsc -w \" \"nodemon ./dist/index.js \""
+    "watch": "concurrently  --names \"TS,Nodemon\" -c \"bgBlue,bgMagenta\" \"tsc -w \" \"nodemon ./dist/index.js \""
   },
   "private": "true",
   "keywords": [],
@@ -21,12 +18,11 @@
     "@apollo/server": "^4.12.0",
     "graphql": "^16.11.0",
     "graphql-tag": "^2.12.6",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.2",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.6",
-    "@graphql-codegen/typescript": "^4.1.6",
-    "@graphql-codegen/typescript-resolvers": "^4.5.1",
     "@types/node": "^22.15.17",
     "concurrently": "^9.1.2",
     "nodemon": "^3.1.10",

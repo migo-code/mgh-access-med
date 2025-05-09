@@ -8,4 +8,18 @@ services:
       - /app/node_modules
     ports:
       - 4000:4000
-    command: npm run dev
+    command: npm start
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+volumes:
+  mongo-data:

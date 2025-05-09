@@ -1,5 +1,6 @@
 type Query {
-  books: [Book]
+  book(id: ID!): Book
+  books: [Book!]!
 }
 
 type Answer {
@@ -22,22 +23,17 @@ type Question {
 type Quiz {
   questions: [Question]
   size: Float!
-  topic: [Topic]
+  topics: [Topic]
 }
 
 type Book {
+  id: ID!
   title: String
   author: String
-  quiz: Quiz
-}
-
-type AddBookMutationResponse {
-  code: String!
-  success: Boolean!
-  message: String!
-  book: Book
+  # quiz: Quiz
+  bookLocation: String!
 }
 
 type Mutation {
-  addBook(title: String, author: String): AddBookMutationResponse
+  addBook(title: String, author: String, bookLocation: String!): Book!
 }

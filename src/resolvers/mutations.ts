@@ -1,11 +1,9 @@
-import { MutationResolvers } from "__generated__/resolvers-types";
+import BookModel from "../models/book.model.js";
 
-// Use the generated `MutationResolvers` type to type check our mutations!
-const mutations: MutationResolvers = {
-  // Below, we mock adding a new book. Our data set is static for this
-  // example, so we won't actually modify our data.
-  addBook: async (_, { title, author }, { dataSources }) => {
-    return dataSources.booksAPI.addBook({ title, author });
+const mutations = {
+  addBook: async (_, { title, author, bookLocation }) => {
+    const newBook = new BookModel({title, author, bookLocation});
+    return await newBook.save()
   },
 };
 
