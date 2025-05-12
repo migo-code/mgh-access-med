@@ -1,5 +1,10 @@
 import { BookModel } from "@repo/models/book.model";
 import { bookCreatedEvent } from "../db/bullmq.js";
+type AddBook = {
+  title?: string;
+  author?: string;
+  bookLocation: string;
+}
 const mutations = {
   addBook: async (
     _:unknown,
@@ -7,15 +12,15 @@ const mutations = {
       title,
       author,
       bookLocation,
-    }: { title: unknown; author: unknown; bookLocation: unknown }
+    }: AddBook
   ) => {
     const newBook = new BookModel({ title, author, bookLocation });
     await newBook.save();
-    const something = await bookCreatedEvent({
+    await bookCreatedEvent({
       id: newBook.id,
       bookLocation: newBook.bookLocation,
     });
-    console.log({ something });
+
     return newBook;
   },
 };

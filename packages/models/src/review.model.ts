@@ -13,11 +13,12 @@ const QuestionSchema = new Schema({
 });
 
 const ReviewSchema = new Schema({
-  book: {
-    type: Schema.Types.ObjectId,
-    ref: 'Book',
-    required: true
-  },
+  // book: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Book',
+  //   required: true
+  // },
+  bookId: String,
   questions: [QuestionSchema],
 });
 

@@ -13,7 +13,8 @@
     },
     "scripts": {
         "check-types": "tsc --noEmit",
-        "build": "tsc"
+        "build": "tsc",
+        "dev": "tsc --watch"
     },
     "devDependencies": {
         "@repo/typescript-config": "*"

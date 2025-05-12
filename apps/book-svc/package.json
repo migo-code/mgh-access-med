@@ -1,6 +1,5 @@
 {
-  "name": "mgh-access-med",
-  "version": "1.0.0",
+  "name": "book-svc",
   "type": "module",
   "scripts": {
     "build": "rimraf ./dist && tsc",

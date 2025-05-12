@@ -1,14 +1,15 @@
 import { BookModel } from "@repo/models/book.model";
 import { ReviewModel } from "@repo/models/review.model";
+type ID = {
+  id?: string;
+};
+
 const queries = {
-    // review: async (
-    //   parent: { review: unknown },
-    //   __dirname: unknown,
-    //   { models }: { models: unknown }
-    // ) => ReviewModel.findById(parent.review),
-  book: async (_: unknown, { id }: { id: unknown }) =>
-    await BookModel.findById(id),
+  book: async (_: unknown, { id }: ID) => BookModel.findById(id),
   books: async () => BookModel.find(),
+
+  review: async (_: unknown, { id }: ID) => ReviewModel.findById(id),
+  reviews: async () => ReviewModel.find(),
 };
 
 export default queries;

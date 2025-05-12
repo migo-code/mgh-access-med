@@ -6,10 +6,10 @@ const redisConnection = {
 };
 const queue = new Queue("Review", { connection: redisConnection });
 
-export const bookCreatedEvent = ({
-  id,
-  bookLocation,
-}: {
-  id: unknown;
-  bookLocation: unknown;
-}) => queue.add("book", { id, bookLocation });
+type BookCreated = {
+  id: string;
+  bookLocation: string;
+};
+
+export const bookCreatedEvent = ({ id, bookLocation }: BookCreated) =>
+  queue.add("book", { id, bookLocation });

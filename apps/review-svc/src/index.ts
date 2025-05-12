@@ -7,7 +7,7 @@ const redisConnection = {
   port: 6379,
 };
 await connectToDatabase();
-const createReview = async (data: {bookId: unknown}) => {
+const createReview = async (data: {id: string}) => {
   // TODO: fancy create review
   const review = new ReviewModel({
     questions: [
@@ -15,17 +15,17 @@ const createReview = async (data: {bookId: unknown}) => {
         description: "test",
       },
     ],
-    book: data.bookId,
+    bookId: data.id,
   });
-  await review.save();
+
+  return review.save();
 };
 
 const worker = new Worker(
   "Review",
   async (job) => {
-    console.log("got a job", { name: job.name });
     if (job.name === "book") {
-      await createReview(job.data);
+      return createReview(job.data);
     }
   },
   {

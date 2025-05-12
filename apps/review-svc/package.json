@@ -1,6 +1,5 @@
 {
   "name": "review-svc",
-  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "rimraf ./dist && tsc",
