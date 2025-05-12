@@ -1,0 +1,26 @@
+{
+  "name": "review-svc",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "dev": "tsc-watch --noClear --onSuccess \"node ./dist/index.js\"",
+    "serve": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@repo/models": "*",
+    "@repo/typescript-config": "*",
+    "@types/node": "^22.15.17",
+    "rimraf": "^6.0.1",
+    "tsc-watch": "^6.2.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "bullmq": "^5.52.2",
+    "mongoose": "^8.14.2"
+  }
+}

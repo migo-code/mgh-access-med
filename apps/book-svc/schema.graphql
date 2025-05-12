@@ -8,29 +8,23 @@ type Answer {
   correctChoice: Boolean!
 }
 
-type Topic {
-  description: String!
-  size: Float!
-}
-
 type Question {
   description: String!
-  topicDescription: String
+  topic: String
   chapter: String
   answers: [Answer]!
 }
 
-type Quiz {
+type Review {
+  book: Book!
   questions: [Question]
-  size: Float!
-  topics: [Topic]
 }
 
 type Book {
   id: ID!
   title: String
   author: String
-  # quiz: Quiz
+  review: Review
   bookLocation: String!
 }
 

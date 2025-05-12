@@ -13,7 +13,7 @@ Book Service focused on the Study Tool review questions.
     api-->>api: Fetch questions from DB
     api->>c: Return random questions and total count
 ```
-### Review
+### Review Service
 Review service is responsible of generating review questions for a newly uploaded book. Generating a review is a long running task.
 
 ```mermaid

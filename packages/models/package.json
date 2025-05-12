@@ -1,0 +1,21 @@
+{
+    "name": "@repo/models",
+    "type": "module",
+    "exports": {
+        "./book.model": {
+            "types": "./src/book.model.ts",
+            "default": "./dist/book.model.js"
+        },
+        "./review.model": {
+            "types": "./src/review.model.ts",
+            "default": "./dist/review.model.js"
+        }
+    },
+    "scripts": {
+        "check-types": "tsc --noEmit",
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "*"
+    }
+}

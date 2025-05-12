@@ -1,31 +1,17 @@
 {
-  "name": "mgh-access-med",
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && node ./dist/index.js",
-    "watch": "concurrently  --names \"TS,Nodemon\" -c \"bgBlue,bgMagenta\" \"tsc -w \" \"nodemon ./dist/index.js \""
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "check-types": "tsc --noEmit"
   },
   "private": "true",
-  "keywords": [],
-  "author": "Miguel Amaro",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@apollo/server": "^4.12.0",
-    "graphql": "^16.11.0",
-    "graphql-tag": "^2.12.6",
-    "mongodb": "^6.16.0",
-    "mongoose": "^8.14.2",
-    "typescript": "^5.8.3"
-  },
+  "packageManager": "npm@10.9.2",
+  "workspaces":[
+    "apps/*",
+    "packages/*"
+  ],
   "devDependencies": {
-    "@types/node": "^22.15.17",
-    "concurrently": "^9.1.2",
-    "nodemon": "^3.1.10",
-    "rimraf": "^6.0.1"
+    "turbo": "^2.5.3"
   }
 }

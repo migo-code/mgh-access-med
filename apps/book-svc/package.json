@@ -1,0 +1,33 @@
+{
+  "name": "mgh-access-med",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "dev": "tsc-watch --noClear --onSuccess \"node ./dist/index.js\"",
+    "serve": "node dist/index.js"
+  },
+  "private": "true",
+  "keywords": [],
+  "author": "Miguel Amaro",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@apollo/server": "^4.12.0",
+    "@repo/models": "*",
+    "bullmq": "^5.52.2",
+    "graphql": "^16.11.0",
+    "graphql-tag": "^2.12.6",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@types/node": "^22.15.17",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.10",
+    "rimraf": "^6.0.1",
+    "tsc-watch": "^6.2.1"
+  }
+}
